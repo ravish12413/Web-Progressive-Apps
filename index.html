@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+    <meta name="theme-color" content="black">
+    <title>Document</title>
+</head>
+<body>
+<div id="main-look">
+    <div id="logo-container">
+        <img src="logo.png" alt="Dropco Multilub Systems Pvt. Ltd. Logo">
+        <div class="logo-text">
+            <h2>Dropco Multilub Systems Pvt. Ltd.</h2>
+            <p>A Source of Complete Lubrication Solutions</p>
+        </div>
+    </div>
+    <div id="banner"></div>
+
+    <div class="intro">
+        <div class="wave-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 209 33">
+                <path fill="white" d="M147.913 18.055C126.48 11.958 125.003.087 104.733.087s-21.48 10.547-43.387 17.557C41.083 24.127 0 22.912 0 22.912l.026 9.94H209.5c-.013-8.506.072-9.94.072-9.94s-40.978 1.026-61.659-4.857z"></path>
+            </svg>
+        </div>
+
+        <div class="profile-section">
+            <div class="side-buttons">
+                <div class="Enquiry">
+                    <i class="fa-solid fa-message"></i>
+                </div>
+            </div>
+            
+            <div class="profile-image">
+                <img src="profile-pic.png" alt="Profile Image" >
+                <h2>Ravish Kumar</h2>
+                <p>SDE</p>
+            </div>
+            
+            <div class="side-buttons">
+                <div class="Share">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact icons -->
+        <div class="contact-icons">
+            <div class="icon">
+                <i class="fas fa-phone"></i>
+                <p>Call</p>
+            </div>
+            <div class="icon">
+                <i class="fab fa-whatsapp"></i>
+                <p>WhatsApp</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-envelope"></i>
+                <p>Email</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-id-card"></i>
+                <p>Save vCard</p>
+            </div>
+        </div>
+
+        <!-- Details Section -->
+        <div class="section">
+            <div class="line-container">
+                <hr class="line-left">
+                <span class="line-text">Company Details</span>
+                <hr class="line-right">
+            </div>
+            <div class="icon-row">
+                <div class="icon">
+                    <i class="fas fa-image"></i>
+                    <p>Gallery</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-book"></i>
+                    <p>Catalog</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-qrcode"></i>
+                    <p>QR Code</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Legal Info</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bio Section -->
+        <div class="section">
+            <div class="line-container">
+                <hr class="line-left">
+                <span class="line-text">Services/Products</span>
+                <hr class="line-right">
+            </div>
+            <p class="Bio">• Manufacturers of Centralised Lubrication Systems & It's Accessories</p>
+        </div>
+
+        <!-- Social Media and Contact Section -->
+        <div class="section">
+            <div class="line-container">
+                <hr class="line-left">
+                <span class="line-text">Contact</span>
+                <hr class="line-right">
+            </div>
+            <div class="icon-row">
+                <div class="icon">
+                    <i class="fas fa-facebook"></i>
+                    <p>Facebook</p>
+                </div>
+                <div class="icon">
+                    <i class="fab fa-instagram"></i>
+                    <p>Instagram</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-youtube"></i>
+                    <p>Youtube</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-globe"></i>
+                    <p>Website</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="address">
+            Roop- Nagar Prem Gali kholi number 420
+            <br><button onclick="">Direction</button>
+        </div>
+
+    </div>
+
+    <div id="install-dialog" style="display:none;">
+        <div class="dialog-overlay"></div>
+        <div class="dialog-box">
+            <span id="close-btn" class="close-btn">&times;</span> <!-- Close icon -->
+            <h3>Install Our App</h3>
+            <button id="install-btn">Install</button>
+            <p>Install this to connect with us everytime and easy accesible whenever you need to search me.</p>
+            
+        </div>
+    </div>
+
+</div>
+
+<script>
+    let deferredPrompt;
+
+    // Listen for the 'beforeinstallprompt' event
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent the default prompt
+        e.preventDefault();
+        deferredPrompt = e;
+
+        // Automatically show the install dialog when the page loads
+        showInstallDialog();
+    });
+
+    // Function to display the custom install dialog
+    function showInstallDialog() {
+        // Only show the dialog if deferredPrompt is available
+        if (deferredPrompt) {
+            const installDialog = document.getElementById('install-dialog');
+            installDialog.style.display = 'flex'; // Show the dialog
+
+            const installBtn = document.getElementById('install-btn');
+            const closeBtn = document.getElementById('close-btn');
+            const overlay = document.querySelector('.dialog-overlay');
+
+            installBtn.addEventListener('click', async () => {
+                // Show the install prompt when the user clicks 'Install'
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+
+                    // Wait for the user's response
+                    const choiceResult = await deferredPrompt.userChoice;
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('PWA installation accepted');
+                    } else {
+                        console.log('PWA installation dismissed');
+                    }
+
+                    // Reset deferredPrompt and hide the dialog
+                    deferredPrompt = null;
+                    installDialog.style.display = 'none';
+                }
+            });
+
+            // Close dialog when the close button (cross) is clicked
+            closeBtn.addEventListener('click', () => {
+                installDialog.style.display = 'none';
+            });
+
+            // Close dialog when clicking outside the dialog box
+            overlay.addEventListener('click', () => {
+                installDialog.style.display = 'none';
+            });
+        }
+    }
+
+    // Register Service Worker
+    window.addEventListener('load', () => {
+        registerSW();
+    });
+
+    async function registerSW() {
+        if ('serviceWorker' in navigator) {
+            try {
+                await navigator.serviceWorker.register('serviceworker.js');
+            } catch (e) {
+                console.log('SW registration failed', e);
+            }
+        }
+    }
+
+    // Optional: Trigger the install prompt manually (you can still do this with the .fa-id-card click)
+    document.querySelector('.fa-id-card').addEventListener('click', () => {
+        if (deferredPrompt) {
+            showInstallDialog();
+        } else {
+            alert("PWA is already installed or not supported on this device.");
+        }
+    });
+
+</script>
+
+
+</body>
+</html>

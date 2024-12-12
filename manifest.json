@@ -1,0 +1,23 @@
+{
+    "name":"Mars-Meta-tech",
+    "short_name":"Mars-meta",
+    "start_url":"index.html",
+    "display":"standalone",
+    "background_color":"#5900b3",
+    "theme_color":"white",
+    "scope": ".",
+    "description":"Contact us.",
+    "icons":[
+    {
+    "src":"profile-pic.png",                      
+    "sizes":"192x192",
+    "type":"image/png"
+    },
+    
+    {
+    "src":"banner.jpg",
+    "sizes":"512x512",
+    "type":"image/png"
+    }
+  ]
+}
